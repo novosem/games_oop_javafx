@@ -3,6 +3,7 @@ package ru.job4j.chess.firuges.black;
 import org.junit.Test;
 import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
+import ru.job4j.chess.firuges.Figure;
 
 import static org.junit.Assert.*;
 
@@ -24,13 +25,14 @@ public class BishopBlackTest {
 
     @Test
     public void isDiagonal() {
-
+        BishopBlack bishopBlack = new BishopBlack(Cell.D1);
+        assertTrue(bishopBlack.isDiagonal(Cell.D1, Cell.A4));
     }
 
     @Test
     public void copy() {
-        BishopBlack bb1 = new BishopBlack(Cell.C5);
-        assertEquals(bb1.position(), Cell.C5);
+        BishopBlack bb1 = new BishopBlack(Cell.A4);
+        assertEquals(bb1.copy(Cell.D1).position(), Cell.D1);
     }
 
     @Test(expected = ImpossibleMoveException.class)
